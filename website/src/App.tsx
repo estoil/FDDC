@@ -209,81 +209,114 @@ function App() {
               relative to the support foot makes that dependency cancel.
             </p>
           </div>
-          <section className="deployability-module" aria-labelledby="deployability-title">
-            <header className="deployability-header">
-              <span className="board-label">From privileged to proprioceptive</span>
-              <h3 id="deployability-title">A three-step path to onboard reconstruction</h3>
-              <p>The key is support-relative—not a new sensor or a distilled estimator.</p>
+          <section className="insight-derivation" aria-labelledby="derivation-title">
+            <header className="derivation-header">
+              <span className="board-label">From balance theory to onboard state</span>
+              <h3 id="derivation-title">One signal, expressed in a deployable frame.</h3>
+              <p>
+                The construction preserves the dynamic balance state while removing
+                the absolute base linear velocity unavailable on hardware.
+              </p>
             </header>
 
-            <div className="derivation-flow">
-              <article className="derivation-step">
-                <span className="step-index">01 · Define</span>
-                <h4>Capture point</h4>
-                <p>Position alone misses momentum. The dynamic signal adds CoM velocity.</p>
-                <div className="math-primary">
-                  ξ = c + <span className="math-fraction"><i>ċ</i><i>ω₀</i></span>
+            <article className="derivation-chapter signal-chapter">
+              <div className="chapter-intro">
+                <span className="step-index">01 · Define the state</span>
+                <h4>Capture point adds momentum to CoM position.</h4>
+                <p>
+                  Under the linear inverted-pendulum approximation, balance depends
+                  on where the CoM is and where its velocity is carrying it.
+                </p>
+              </div>
+              <div className="signal-equations">
+                <div className="equation-hero" aria-label="xi equals c plus c dot over omega zero">
+                  <span>ξ</span><i>=</i><span>c</span><i>+</i>
+                  <span className="math-fraction"><b>ċ</b><b>ω₀</b></span>
                 </div>
-                <small>ω₀ = √(g / h)</small>
-              </article>
+                <div className="equation-secondary">
+                  <span>ω₀ ≜ √(g / h)</span>
+                  <small>LIP natural frequency</small>
+                </div>
+              </div>
+              <dl className="symbol-key">
+                <div><dt>c, ċ</dt><dd>CoM position and velocity</dd></div>
+                <div><dt>h</dt><dd>effective CoM height</dd></div>
+                <div><dt>g</dt><dd>gravitational acceleration</dd></div>
+                <div><dt>ξ</dt><dd>capture point / xCoM</dd></div>
+              </dl>
+              <div className="relative-state">
+                <span>Relative to support center s</span>
+                <strong>r ≜ c − s</strong>
+                <strong>ξ − s ≈ r + ṙ / ω₀</strong>
+              </div>
+            </article>
 
-              <article className="derivation-step cancellation-step">
-                <span className="step-index">02 · Cancel</span>
-                <h4>Support-relative velocity</h4>
-                <p>In the world frame, base velocity enters both terms identically.</p>
-                <div className="math-stack">
-                  <span>ċ<sub>W</sub> = <del>v<sub>b</sub></del> + κ<sub>c</sub></span>
-                  <span>ṡ<sub>W</sub> = <del>v<sub>b</sub></del> + κ<sub>s</sub></span>
-                  <strong>ṙ<sub>W</sub> = ċ<sub>W</sub> − ṡ<sub>W</sub> = κ<sub>c</sub> − κ<sub>s</sub></strong>
+            <article className="derivation-chapter cancel-chapter">
+              <div className="chapter-intro">
+                <span className="step-index">02 · Remove the hidden state</span>
+                <h4>Subtract support motion in the world frame.</h4>
+                <p>
+                  CoM and support center share the same translating base. Expanding
+                  both velocities exposes the identical term that disappears.
+                </p>
+              </div>
+              <div className="proof-panel">
+                <div className="proof-line">
+                  <span className="proof-name">CoM</span>
+                  <span>ċ<sub>W</sub> = <del>v<sub>b</sub><sup>W</sup></del> + ω<sub>W</sub> × (R d<sub>c</sub>) + R J<sub>c</sub> q̇</span>
                 </div>
-                <small>The shared v<sub>b</sub> term cancels in the difference.</small>
-              </article>
+                <div className="proof-line">
+                  <span className="proof-name">Support</span>
+                  <span>ṡ<sub>W</sub> = <del>v<sub>b</sub><sup>W</sup></del> + ω<sub>W</sub> × (R d<sub>s</sub>) + R J<sub>s</sub> q̇</span>
+                </div>
+                <div className="proof-operator"><span>subtract</span><i>↓</i></div>
+                <div className="proof-line proof-result">
+                  <span className="proof-name">Relative</span>
+                  <strong>
+                    ṙ<sub>W</sub> = ω<sub>W</sub> × R(d<sub>c</sub> − d<sub>s</sub>)
+                    + R(J<sub>c</sub> − J<sub>s</sub>)q̇
+                  </strong>
+                </div>
+              </div>
+              <aside className="cancellation-note">
+                <span>What cancels—and why</span>
+                <p>
+                  The base translation v<sub>b</sub><sup>W</sup> appears with the
+                  same sign in ċ<sub>W</sub> and ṡ<sub>W</sub>. Their difference
+                  removes it identically; no velocity estimator is introduced.
+                </p>
+              </aside>
+            </article>
 
-              <article className="derivation-step onboard-step">
-                <span className="step-index">03 · Reconstruct</span>
-                <h4>Base-frame observation</h4>
-                <p>Rotate to the torso frame and compute the same state from proprioception.</p>
-                <div className="math-compact">
-                  <span>r<sub>B</sub> = d<sub>c</sub> − d<sub>s</sub></span>
-                  <span>ṙ<sub>B</sub> = ω<sub>B</sub> × (d<sub>c</sub> − d<sub>s</sub>)</span>
-                  <span>+ (J<sub>c</sub> − J<sub>s</sub>)q̇</span>
-                </div>
-                <div className="sensor-list">
-                  <span>Encoders</span><span>Gyro</span><span>Gravity</span><span>Model</span>
-                </div>
-              </article>
-            </div>
-
-            <div className="derivation-summary">
-              <span>Support-relative capture-point state</span>
-              <strong>ξ − s ≈ r + ṙ / ω₀</strong>
-              <p>No absolute base position or linear velocity enters the deployed actor.</p>
-            </div>
+            <article className="derivation-chapter reconstruct-chapter">
+              <div className="chapter-intro">
+                <span className="step-index">03 · Reconstruct onboard</span>
+                <h4>Express the result in the torso frame.</h4>
+                <p>
+                  The deployable form contains only proprioceptive measurements and
+                  quantities computed from the robot&apos;s kinematic and mass model.
+                </p>
+              </div>
+              <div className="onboard-equations">
+                <span>r<sub>B</sub> = d<sub>c</sub> − d<sub>s</sub></span>
+                <strong>
+                  ṙ<sub>B</sub> = ω<sub>B</sub> × (d<sub>c</sub> − d<sub>s</sub>)
+                  + (J<sub>c</sub> − J<sub>s</sub>)q̇
+                </strong>
+              </div>
+              <div className="input-map">
+                <div><span>Joint encoders</span><strong>q, q̇</strong><p>Configuration and joint velocity.</p></div>
+                <div><span>Torso gyroscope</span><strong>ω<sub>B</sub></strong><p>Base angular velocity.</p></div>
+                <div><span>Projected gravity</span><strong>xy plane</strong><p>Gravity-aligned horizontal projection.</p></div>
+                <div><span>Robot model</span><strong>d, J, m</strong><p>CoM/support kinematics and mass weighting.</p></div>
+              </div>
+              <div className="actor-output">
+                <span>Actor receives horizontal components</span>
+                <strong>o<sub>bal</sub> = ([r<sub>B</sub>]<sub>xy</sub>, [ṙ<sub>B</sub>]<sub>xy</sub>) ∈ ℝ⁴</strong>
+                <p>Direct deployment · no teacher–student distillation</p>
+              </div>
+            </article>
           </section>
-
-          <div className="insight-principles">
-            <article>
-              <span>01</span>
-              <h3>Cancel the hidden state</h3>
-              <p>No absolute base position or linear velocity is required onboard.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Observe, don&apos;t only reward</h3>
-              <p>Removing dynamic-CoM from the actor costs 40 points of clean success.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Prevent, don&apos;t repair</h3>
-              <p>Keep the capture point inside the support polygon before recovery is needed.</p>
-            </article>
-          </div>
-
-          <div className="observation-strip">
-            <span>Deployable actor observation</span>
-            <strong>o<sub>bal</sub> = (r<sub>B</sub>, ṙ<sub>B</sub>) ∈ ℝ⁴</strong>
-            <p>Joint encoders + torso IMU + robot model</p>
-          </div>
 
           <div className="pipeline">
             {[
