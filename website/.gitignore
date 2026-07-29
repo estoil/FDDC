@@ -1,0 +1,5 @@
+node_modules/
+dist/
+.conda/
+*.tsbuildinfo
+.DS_Store
