@@ -13,6 +13,12 @@ const Play = () => (
   </svg>
 )
 
+const Check = () => (
+  <svg viewBox="0 0 16 16" aria-hidden="true">
+    <path d="m3 8.5 3.1 3.1L13 4.7" />
+  </svg>
+)
+
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false)
 
@@ -124,8 +130,9 @@ function App() {
 
   return (
     <>
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="site-header">
-        <a href="#top" className="wordmark" aria-label="FDDC home">FDDC<span>·</span></a>
+        <a href="#main-content" className="wordmark" aria-label="FDDC home">FDDC<span>·</span></a>
         <nav aria-label="Primary navigation">
           <a href="#method">Method</a>
           <a href="#results">Results</a>
@@ -134,12 +141,12 @@ function App() {
         <a href="#resources" className="header-cta">Resources <Arrow /></a>
       </header>
 
-      <main id="top">
+      <main id="main-content">
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-video-wrap">
             <video
               className="hero-video"
-              src="./media/fddc-film.mp4"
+              src="./media/hero-video.mp4"
               poster="./media/fddc-poster.webp"
               muted
               loop
@@ -150,7 +157,7 @@ function App() {
             <div className="hero-shade" />
           </div>
           <div className="hero-content">
-            <p className="eyebrow">Humanoid balance, solved at the root</p>
+            <p className="eyebrow">FDDC · Humanoid balance, solved at the root</p>
             <h1 id="hero-title">Dynamic balance.<br /><em>Directly deployable.</em></h1>
             <p className="hero-copy">
               The first support-relative dynamic-CoM policy for clean humanoid
@@ -160,6 +167,7 @@ function App() {
               <a href="#demos" className="button button-primary"><Play /> Watch real-robot demos</a>
               <a href="#method" className="button button-ghost">Explore the method <Arrow /></a>
             </div>
+            <p className="hero-definition"><strong>FDDC</strong> · First Deployable Dynamic-CoM policy for humanoid single-leg balance</p>
           </div>
           <div className="hero-meta">
             <span>Unitree G1</span><span>29 DoF</span><span>50 Hz</span><span>No distillation</span>
@@ -196,6 +204,17 @@ function App() {
               <p>Keep the capture point inside the foot</p>
               <div className="signal signal-good"><i /><i /><i /><i /><i /></div>
             </article>
+          </div>
+          <div className="reviewer-summary" aria-label="Research summary">
+            <div>
+              <span className="micro-label">At a glance</span>
+              <h3>Built for the moment a humanoid has <em>no spare foot.</em></h3>
+            </div>
+            <ul>
+              <li><Check />Support-relative dynamic-CoM state</li>
+              <li><Check />One policy across 25 real-robot poses</li>
+              <li><Check />Onboard Unitree G1 inference at 50 Hz</li>
+            </ul>
           </div>
         </section>
 
@@ -419,19 +438,19 @@ function App() {
         <section className="resources" id="resources">
           <p className="eyebrow">Root-cause balance</p>
           <h2>Turn balance from a per-task trick<br />into a capability we can <em>measure.</em></h2>
-          <div className="resource-links">
+          <div className="resource-links" aria-label="Project resources">
             {links.map((link) => (
-              <div key={link.label}><span>{link.label}</span><small>{link.status}</small></div>
+              <div key={link.label} className="resource-item"><span>{link.label}</span><small>{link.status}</small></div>
             ))}
           </div>
-          <p className="anonymous-note">Public project information and author details will be added after de-anonymization.</p>
+          <p className="anonymous-note">This is an anonymous submission. Paper, code, benchmark, and author information will be released after de-anonymization.</p>
         </section>
       </main>
 
       <footer>
-        <a href="#top" className="wordmark">FDDC<span>·</span></a>
+        <a href="#main-content" className="wordmark">FDDC<span>·</span></a>
         <p>First Deployable Dynamic-CoM for Humanoid Single-Leg Balance</p>
-        <a href="#top">Back to top ↑</a>
+        <a href="#main-content">Back to top ↑</a>
       </footer>
 
       {selectedDemo && <DemoModal demo={selectedDemo} onClose={closeModal} />}
