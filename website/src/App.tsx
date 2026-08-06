@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { demos, links, results, type Demo } from './data/project'
+import { authors, demos, links, paper, repository, results, type Demo } from './data/project'
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" aria-hidden="true">
@@ -165,7 +165,8 @@ function App() {
             </p>
             <div className="hero-actions">
               <a href="#demos" className="button button-primary"><Play /> Watch real-robot demos</a>
-              <a href="#method" className="button button-ghost">Explore the method <Arrow /></a>
+              <a href={paper.url} className="button button-ghost" target="_blank" rel="noopener noreferrer">Read the paper <Arrow /></a>
+              <a href={repository.url} className="button button-ghost" target="_blank" rel="noopener noreferrer">View code <Arrow /></a>
             </div>
             <p className="hero-definition"><strong>FDDC</strong> · First Deployable Dynamic-CoM policy for humanoid single-leg balance</p>
           </div>
@@ -440,16 +441,32 @@ function App() {
           <h2>Turn balance from a per-task trick<br />into a capability we can <em>measure.</em></h2>
           <div className="resource-links" aria-label="Project resources">
             {links.map((link) => (
-              <div key={link.label} className="resource-item"><span>{link.label}</span><small>{link.status}</small></div>
+              <a
+                key={link.label}
+                href={link.href}
+                className="resource-item"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>{link.label}</span>
+                <small>{link.subtitle}</small>
+              </a>
             ))}
           </div>
-          <p className="anonymous-note">This is an anonymous submission. Paper, code, benchmark, and author information will be released after de-anonymization.</p>
+          <p className="paper-title">{paper.title}</p>
+          <p className="authors">{authors.join(' · ')}</p>
+          <p className="venue">{paper.venue}</p>
         </section>
       </main>
 
       <footer>
         <a href="#main-content" className="wordmark">FDDC<span>·</span></a>
         <p>First Deployable Dynamic-CoM for Humanoid Single-Leg Balance</p>
+        <nav className="footer-links" aria-label="External links">
+          <a href={paper.url} target="_blank" rel="noopener noreferrer">Paper</a>
+          <a href={repository.url} target="_blank" rel="noopener noreferrer">Code</a>
+          <a href={repository.benchmarkUrl} target="_blank" rel="noopener noreferrer">Benchmark</a>
+        </nav>
         <a href="#main-content">Back to top ↑</a>
       </footer>
 

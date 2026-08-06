@@ -49,12 +49,15 @@ The repository-level GitHub Actions workflow builds `website/` and deploys `webs
 
 The Vite base path is relative, so the build works for both `username.github.io` and repository subpaths.
 
-## De-anonymization checklist
+Public links live in `src/data/project.ts` (`paper`, `repository`, `authors`).
 
-Public links and author information intentionally remain marked **Coming soon**. Before publication:
+### Go live on GitHub Pages
 
-1. replace the resource placeholders in `src/data/project.ts`;
-2. add author names and affiliations;
-3. confirm the final paper title, venue, and citation;
-4. add the public paper, code, and benchmark URLs;
-5. review all demo labels against the final motion metadata.
+1. Push the `website/` changes to the `main` branch (or run **Deploy FDDC website** manually under Actions).
+2. In the GitHub repo: **Settings → Pages → Build and deployment → Source** → select **GitHub Actions**.
+3. After the workflow succeeds, open the URL shown in the **Deploy FDDC website** run (typically `https://<user>.github.io/<repo>/` or your custom domain).
+4. Add the live URL to the FDDC GitHub README and the arXiv “Comments” field so paper and project page cross-link.
+
+### Optional: custom domain
+
+Set **Settings → Pages → Custom domain**, add a DNS `CNAME` (e.g. `fddc.example.org`), and commit a `website/public/CNAME` file if you use a project subdomain.

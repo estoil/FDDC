@@ -3,7 +3,7 @@
 :root {
   color: #151718;
   background: #f2f0ea;
-  font-family: 'Manrope', sans-serif;
+  font-family: Manrope, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   --ink: #151718;
@@ -34,7 +34,7 @@ img, video { display: block; max-width: 100%; }
   background: var(--acid);
   color: var(--ink);
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   transform: translateY(-160%);
   transition: transform 180ms ease;
 }
@@ -65,7 +65,7 @@ img, video { display: block; max-width: 100%; }
 .site-header nav { display: flex; gap: 34px; }
 .site-header nav a, .header-cta {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -110,7 +110,7 @@ img, video { display: block; max-width: 100%; }
 
 .eyebrow, .section-kicker, .micro-label {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -146,7 +146,7 @@ section h2 em, .hero h1 em {
   margin: 24px 0 0;
   color: rgba(255,255,255,0.45);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.04em;
   line-height: 1.6;
   text-transform: uppercase;
@@ -160,7 +160,7 @@ section h2 em, .hero h1 em {
   align-items: center;
   gap: 10px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   transition: background 180ms ease, color 180ms ease;
@@ -179,13 +179,13 @@ section h2 em, .hero h1 em {
   display: flex;
   gap: 25px;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: rgba(255,255,255,0.56);
 }
 
-.hero-meta span::before { content: '•'; color: var(--acid); margin-right: 8px; }
+.hero-meta span::before { content: "-"; color: var(--acid); margin-right: 8px; }
 .scroll-cue {
   position: absolute;
   z-index: 2;
@@ -195,7 +195,7 @@ section h2 em, .hero h1 em {
   align-items: center;
   gap: 12px;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: rgba(255,255,255,0.55);
@@ -219,7 +219,7 @@ section h2 em, .hero h1 em {
   border-radius: 100%;
   display: inline-grid;
   place-items: center;
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .section-kicker.light { color: rgba(255,255,255,0.5); }
@@ -255,11 +255,11 @@ section h2 em, .hero h1 em {
   font-family: var(--mono);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  font-size: 9px;
+  font-size: 12px;
   color: var(--muted);
 }
 .comparison strong { font-size: 42px; font-weight: 400; display: block; margin-top: 18px; }
-.comparison p { color: var(--muted); font-size: 13px; }
+.comparison p { color: var(--muted); font-size: 14px; }
 .comparison-divider {
   align-self: center;
   font-family: var(--serif);
@@ -316,7 +316,7 @@ section h2 em, .hero h1 em {
 .board-label {
   display: block;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--acid);
@@ -334,7 +334,7 @@ section h2 em, .hero h1 em {
 }
 .step-index {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--acid);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -364,7 +364,7 @@ section h2 em, .hero h1 em {
   align-items: center;
   justify-content: center;
   gap: clamp(12px, 2vw, 28px);
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: clamp(48px, 5.2vw, 76px);
   white-space: nowrap;
 }
@@ -386,13 +386,13 @@ section h2 em, .hero h1 em {
   gap: 10px;
 }
 .equation-secondary span {
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: 27px;
 }
 .equation-secondary small {
   color: rgba(255,255,255,0.34);
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -414,13 +414,13 @@ section h2 em, .hero h1 em {
 .symbol-key div:nth-child(odd) { padding-right: 25px; }
 .symbol-key div:nth-child(even) { padding-left: 25px; border-left: 1px solid rgba(255,255,255,0.1); }
 .symbol-key dt {
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: 17px;
 }
 .symbol-key dd {
   margin: 0;
   color: rgba(255,255,255,0.38);
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .relative-state {
@@ -435,12 +435,12 @@ section h2 em, .hero h1 em {
 .relative-state > span {
   color: var(--acid);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 .relative-state strong {
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: 20px;
   font-weight: 400;
 }
@@ -456,13 +456,13 @@ section h2 em, .hero h1 em {
   grid-template-columns: 80px minmax(0, 1fr);
   gap: 25px;
   align-items: center;
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: clamp(16px, 1.55vw, 22px);
 }
 .proof-name {
   color: rgba(255,255,255,0.35);
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -478,7 +478,7 @@ section h2 em, .hero h1 em {
   gap: 12px;
   color: rgba(255,255,255,0.32);
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -505,14 +505,14 @@ section h2 em, .hero h1 em {
 .cancellation-note > span {
   color: var(--acid);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 .cancellation-note p {
   margin: 0;
   color: rgba(255,255,255,0.48);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.75;
 }
 .onboard-equations {
@@ -523,7 +523,7 @@ section h2 em, .hero h1 em {
   justify-content: center;
   align-items: center;
   gap: 18px;
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: clamp(21px, 2.1vw, 30px);
   text-align: center;
 }
@@ -551,21 +551,21 @@ section h2 em, .hero h1 em {
   display: block;
   color: rgba(255,255,255,0.4);
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 .input-map strong {
   display: block;
   margin-top: 10px;
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: 20px;
   font-weight: 400;
 }
 .input-map p {
   margin: 7px 0 0;
   color: rgba(255,255,255,0.34);
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .actor-output {
@@ -580,12 +580,12 @@ section h2 em, .hero h1 em {
 .actor-output > span {
   color: var(--acid);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 .actor-output strong {
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: 22px;
   font-weight: 400;
   text-align: center;
@@ -593,7 +593,7 @@ section h2 em, .hero h1 em {
 .actor-output p {
   margin: 0;
   color: rgba(255,255,255,0.4);
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.6;
   text-align: right;
 }
@@ -651,7 +651,7 @@ section h2 em, .hero h1 em {
   align-items: center;
   justify-content: center;
   gap: clamp(12px, 2vw, 28px);
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: clamp(48px, 5.2vw, 76px);
   white-space: nowrap;
 }
@@ -667,14 +667,14 @@ section h2 em, .hero h1 em {
   gap: 10px;
 }
 .equation-secondary span {
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: 27px;
   white-space: nowrap;
 }
 .equation-secondary small {
   color: rgba(255,255,255,0.34);
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -694,8 +694,8 @@ section h2 em, .hero h1 em {
 }
 .symbol-key div:nth-child(odd) { padding-right: 25px; }
 .symbol-key div:nth-child(even) { padding-left: 25px; border-left: 1px solid rgba(255,255,255,0.1); }
-.symbol-key dt { font-family: 'Times New Roman', serif; font-size: 17px; }
-.symbol-key dd { margin: 0; color: rgba(255,255,255,0.38); font-size: 10px; line-height: 1.5; }
+.symbol-key dt { font-family: var(--serif); font-size: 17px; }
+.symbol-key dd { margin: 0; color: rgba(255,255,255,0.38); font-size: 12px; line-height: 1.5; }
 .relative-state {
   grid-column: 1 / -1;
   padding: 19px 40px;
@@ -708,11 +708,11 @@ section h2 em, .hero h1 em {
 .relative-state > span {
   color: var(--acid);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-.relative-state strong { font-family: 'Times New Roman', serif; font-size: 20px; font-weight: 400; }
+.relative-state strong { font-family: var(--serif); font-size: 20px; font-weight: 400; }
 .cancel-chapter { background: rgba(214,255,56,0.035); }
 .proof-panel { padding: 36px 44px 28px; min-width: 0; }
 .proof-line {
@@ -722,13 +722,13 @@ section h2 em, .hero h1 em {
   grid-template-columns: 80px minmax(0, 1fr);
   gap: 25px;
   align-items: center;
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: clamp(16px, 1.55vw, 22px);
 }
 .proof-name {
   color: rgba(255,255,255,0.35);
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -744,7 +744,7 @@ section h2 em, .hero h1 em {
   gap: 12px;
   color: rgba(255,255,255,0.32);
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -767,17 +767,17 @@ section h2 em, .hero h1 em {
 .cancellation-note > span {
   color: var(--acid);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-.cancellation-note p { margin: 0; color: rgba(255,255,255,0.48); font-size: 11px; line-height: 1.75; }
+.cancellation-note p { margin: 0; color: rgba(255,255,255,0.48); font-size: 12px; line-height: 1.75; }
 .onboard-equations {
   padding: 43px 44px 30px;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  font-family: 'Times New Roman', serif;
+  font-family: var(--serif);
   font-size: clamp(21px, 2.1vw, 30px);
 }
 .onboard-equations strong { color: var(--acid); font-size: 0.82em; line-height: 1.5; font-weight: 400; }
@@ -793,12 +793,12 @@ section h2 em, .hero h1 em {
   display: block;
   color: rgba(255,255,255,0.4);
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-.input-map strong { display: block; margin-top: 10px; font-family: 'Times New Roman', serif; font-size: 20px; font-weight: 400; }
-.input-map p { margin: 7px 0 0; color: rgba(255,255,255,0.34); font-size: 9px; line-height: 1.5; }
+.input-map strong { display: block; margin-top: 10px; font-family: var(--serif); font-size: 20px; font-weight: 400; }
+.input-map p { margin: 7px 0 0; color: rgba(255,255,255,0.34); font-size: 12px; line-height: 1.5; }
 .actor-output {
   grid-column: 1 / -1;
   padding: 22px 40px;
@@ -811,12 +811,12 @@ section h2 em, .hero h1 em {
 .actor-output > span {
   color: var(--acid);
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-.actor-output strong { font-family: 'Times New Roman', serif; font-size: 22px; font-weight: 400; text-align: center; }
-.actor-output p { margin: 0; color: rgba(255,255,255,0.4); font-size: 10px; line-height: 1.6; text-align: right; }
+.actor-output strong { font-family: var(--serif); font-size: 22px; font-weight: 400; text-align: center; }
+.actor-output p { margin: 0; color: rgba(255,255,255,0.4); font-size: 12px; line-height: 1.6; text-align: right; }
 .proof-line sub, .proof-line sup, .onboard-equations sub, .actor-output sub { font-size: 0.58em; }
 
 .pipeline {
@@ -840,7 +840,7 @@ section h2 em, .hero h1 em {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  font-size: 11px;
+  font-size: 12px;
 }
 .method-figure figcaption span { color: var(--acid); font-family: var(--mono); text-transform: uppercase; }
 
@@ -858,8 +858,8 @@ section h2 em, .hero h1 em {
 .result-grid article:not(:first-child) { padding-left: 28px; }
 .result-grid article:last-child { border: 0; }
 .result-grid strong { display: block; font-weight: 300; font-size: clamp(38px, 4.3vw, 66px); letter-spacing: -0.06em; }
-.result-grid h3 { font-size: 13px; font-weight: 500; margin: 20px 0 5px; }
-.result-grid p { font-family: var(--mono); font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin: 0; }
+.result-grid h3 { font-size: 14px; font-weight: 500; margin: 20px 0 5px; }
+.result-grid p { font-family: var(--mono); font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin: 0; }
 .result-grid .primary-result strong { color: #607900; }
 
 .ablation {
@@ -872,11 +872,11 @@ section h2 em, .hero h1 em {
 .micro-label { color: var(--muted); }
 .ablation h3 { font-size: 27px; line-height: 1.35; font-weight: 400; margin: 22px 0 0; }
 .ablation h3 em { font-family: var(--serif); color: #647d06; font-weight: 400; }
-.bars > div { display: grid; grid-template-columns: 110px 1fr 55px; gap: 14px; align-items: center; margin: 18px 0; font-size: 11px; }
+.bars > div { display: grid; grid-template-columns: 110px 1fr 55px; gap: 14px; align-items: center; margin: 18px 0; font-size: 12px; }
 .bars i { height: 8px; background: #dad9d3; }
 .bars i b { display: block; height: 100%; background: #1b1d1d; }
 .bars div:first-child i b { background: #6c8700; }
-.bars strong { font-family: var(--mono); font-size: 10px; text-align: right; }
+.bars strong { font-family: var(--mono); font-size: 12px; text-align: right; }
 
 .demos-section { background: #0b0d0e; color: white; padding: 120px 4px 40px; }
 .demos-intro {
@@ -908,7 +908,7 @@ section h2 em, .hero h1 em {
   left: 12px;
   bottom: 10px;
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.08em;
   text-shadow: 0 1px 3px black;
 }
@@ -932,7 +932,7 @@ section h2 em, .hero h1 em {
   justify-content: space-between;
   padding: 22px calc(7vw - 4px) 0;
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: rgba(255,255,255,0.38);
@@ -944,7 +944,7 @@ section h2 em, .hero h1 em {
 .benchmark-grid > div:first-child > p { max-width: 570px; margin-top: 35px; }
 .benchmark-points article { display: flex; gap: 30px; padding: 24px 0; border-top: 1px solid var(--line); }
 .benchmark-points article:last-child { border-bottom: 1px solid var(--line); }
-.benchmark-points > article > span { font-family: var(--mono); font-size: 9px; color: #728a12; padding-top: 5px; }
+.benchmark-points > article > span { font-family: var(--mono); font-size: 12px; color: #728a12; padding-top: 5px; }
 .benchmark-points h3 { margin: 0 0 8px; font-size: 16px; font-weight: 500; }
 .benchmark-points p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .dataset-strip {
@@ -955,7 +955,7 @@ section h2 em, .hero h1 em {
 }
 .dataset-strip div { padding: 32px; border-right: 1px solid rgba(0,0,0,0.1); }
 .dataset-strip strong { display: block; font-size: 30px; font-weight: 400; letter-spacing: -0.05em; }
-.dataset-strip span { font-family: var(--mono); font-size: 8px; text-transform: uppercase; color: var(--muted); letter-spacing: 0.08em; }
+.dataset-strip span { font-family: var(--mono); font-size: 12px; text-transform: uppercase; color: var(--muted); letter-spacing: 0.08em; }
 
 .resources {
   background: #111314;
@@ -973,14 +973,51 @@ section h2 em, .hero h1 em {
   border-top: 1px solid rgba(255,255,255,0.16);
   border-bottom: 1px solid rgba(255,255,255,0.16);
 }
-.resource-links div { padding: 30px 20px; border-right: 1px solid rgba(255,255,255,0.16); }
-.resource-links div:last-child { border: 0; }
-.resource-item { position: relative; }
-.resource-item::before { content: ''; position: absolute; top: 0; left: 20px; right: 20px; height: 1px; background: var(--acid); transform: scaleX(0); transition: transform 180ms ease; }
+.resource-links a { padding: 30px 20px; border-right: 1px solid rgba(255,255,255,0.16); }
+.resource-links a:last-child { border: 0; }
+.resource-item {
+  position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: background 180ms ease;
+}
+.resource-item:hover { background: rgba(255,255,255,0.04); }
+.resource-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: var(--acid);
+  transform: scaleX(0);
+  transition: transform 180ms ease;
+}
 .resource-item:hover::before { transform: scaleX(1); }
 .resource-links span { display: block; font-size: 16px; }
-.resource-links small { display: block; margin-top: 8px; color: rgba(255,255,255,0.35); font-family: var(--mono); font-size: 8px; text-transform: uppercase; letter-spacing: 0.1em; }
-.anonymous-note { margin: 25px auto 0; color: rgba(255,255,255,0.3); font-size: 10px; }
+.resource-links small { display: block; margin-top: 8px; color: rgba(255,255,255,0.35); font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; }
+.paper-title {
+  width: min(760px, 100%);
+  margin: 48px auto 0;
+  color: rgba(255,255,255,0.55);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.authors {
+  margin: 18px auto 0;
+  color: rgba(255,255,255,0.72);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+.venue {
+  margin: 10px auto 0;
+  color: rgba(255,255,255,0.35);
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
 
 footer {
   background: #111314;
@@ -991,11 +1028,14 @@ footer {
   align-items: center;
   justify-content: space-between;
   font-family: var(--mono);
-  font-size: 8px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-footer .wordmark { color: white; font-family: 'Manrope', sans-serif; font-size: 17px; }
+footer .wordmark { color: white; font-family: Manrope, sans-serif; font-size: 17px; }
+.footer-links { display: flex; gap: 18px; }
+.footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 180ms ease; }
+.footer-links a:hover { color: var(--acid); }
 
 .modal {
   position: fixed;
@@ -1034,7 +1074,7 @@ footer .wordmark { color: white; font-family: 'Manrope', sans-serif; font-size: 
   line-height: 1;
   cursor: pointer;
 }
-.modal-caption { padding-top: 16px; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+.modal-caption { padding-top: 16px; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
 .modal-caption span { color: var(--acid); }
 .modal-caption p { margin: 0; color: rgba(255,255,255,0.6); }
 .modal-caption i { color: rgba(255,255,255,0.25); font-style: normal; padding: 0 5px; }
@@ -1075,11 +1115,11 @@ footer .wordmark { color: white; font-family: 'Manrope', sans-serif; font-size: 
 
 @media (max-width: 600px) {
   .site-header { height: 60px; padding: 0 20px; }
-  .header-cta { font-size: 9px; }
+  .header-cta { font-size: 12px; }
   .hero { height: 100svh; min-height: 650px; }
   .hero-content { width: auto; margin: 0 22px; }
   .hero h1 { font-size: clamp(48px, 16vw, 72px); }
-  .hero-copy { font-size: 13px; margin-top: 24px; }
+  .hero-copy { font-size: 14px; margin-top: 24px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .button { justify-content: center; }
   .scroll-cue { left: 22px; }
@@ -1136,7 +1176,7 @@ footer .wordmark { color: white; font-family: 'Manrope', sans-serif; font-size: 
   .dataset-strip { grid-template-columns: 1fr 1fr; }
   .dataset-strip div { padding: 22px 16px; }
   .resource-links { grid-template-columns: 1fr; }
-  .resource-links div { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 20px; }
+  .resource-links a { border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 20px; }
   footer { padding: 25px 20px; }
   footer p { display: none; }
   .modal { padding: 15px; }

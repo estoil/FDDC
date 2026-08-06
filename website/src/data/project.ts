@@ -55,8 +55,38 @@ export const results = [
   { value: '3.9', label: 'mm/s support-foot slip', note: 'vs. 84–578 for baselines' },
 ]
 
-export const links = [
-  { label: 'Paper', status: 'Coming soon' },
-  { label: 'Code', status: 'Coming soon' },
-  { label: 'Benchmark', status: 'Coming soon' },
+export type ResourceLink = {
+  label: string
+  href: string
+  subtitle: string
+}
+
+export const paper = {
+  title:
+    'First Deployable Dynamic-CoM: A Unified Policy and Method-Agnostic Benchmark for Humanoid Single-Leg Balance',
+  arxivId: '2608.00500',
+  url: 'https://arxiv.org/abs/2608.00500',
+  pdfUrl: 'https://arxiv.org/pdf/2608.00500',
+  venue: 'arXiv preprint · 2026',
+}
+
+export const repository = {
+  url: 'https://github.com/zhouyikai888/FDDC',
+  benchmarkUrl: 'https://github.com/zhouyikai888/FDDC/tree/main/eval',
+}
+
+export const authors = [
+  'Yikai Zhou',
+  'Xingyun Wang',
+  'Jieming Cui',
+  'Bozhou Chen',
+  'Yikai Fan',
+  'Yixin Zhu',
+  'Wenxin Li',
+]
+
+export const links: ResourceLink[] = [
+  { label: 'Paper', href: paper.url, subtitle: `arXiv:${paper.arxivId}` },
+  { label: 'Code', href: repository.url, subtitle: 'GitHub · full stack' },
+  { label: 'Benchmark', href: repository.benchmarkUrl, subtitle: 'MuJoCo sim2sim harness' },
 ]
