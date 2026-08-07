@@ -15,18 +15,6 @@ const simulationVideos = [
   ['TWIST', 'sim2sim_com_xcom_right_8424_TWIST.mp4'],
 ] as const
 
-function PdfIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l4 4v16H6z" /><path d="M14 2v5h5M8.5 16.5h7M8.5 13.5h7" /></svg>
-}
-
-function GitHubIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.48.09.65-.2.65-.46v-1.68c-2.65.58-3.2-1.12-3.2-1.12-.43-1.1-1.06-1.39-1.06-1.39-.87-.59.07-.58.07-.58.96.07 1.47.99 1.47.99.86 1.46 2.25 1.04 2.8.8.09-.61.34-1.04.61-1.28-2.12-.24-4.35-1.06-4.35-4.72 0-1.04.37-1.89.98-2.55-.1-.24-.42-1.21.09-2.52 0 0 .8-.26 2.62.97a9.1 9.1 0 0 1 4.77 0c1.81-1.23 2.61-.97 2.61-.97.52 1.31.19 2.28.1 2.52.61.66.97 1.51.97 2.55 0 3.67-2.23 4.48-4.36 4.71.34.3.65.89.65 1.8v2.67c0 .26.17.56.66.46A9.5 9.5 0 0 0 12 2.5Z" /></svg>
-}
-
-function VideoIcon() {
-  return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2" /><path d="m10 9 5 3-5 3Z" /></svg>
-}
-
 function PlayIcon() {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7 8 5-8 5Z" /></svg>
 }
@@ -81,9 +69,9 @@ function App() {
       <section className="project-hero" id="top">
         <div className="hero-background" aria-hidden="true"><video src="./media/hero-video.mp4" poster="./media/fddc-poster.webp" muted loop autoPlay={!reducedMotion} playsInline preload="metadata" /><div /></div>
         <nav className="resource-links" aria-label="Project resources">
-          <a href={paper.url} target="_blank" rel="noreferrer"><PdfIcon /><span>arXiv</span></a>
-          <a href={youtubeUrl} target="_blank" rel="noreferrer"><VideoIcon /><span>Video</span></a>
-          <a href={repository.url} target="_blank" rel="noreferrer"><GitHubIcon /><span>Code</span></a>
+          <a href={paper.url} target="_blank" rel="noreferrer"><img className="resource-icon" src="./media/icons/arxiv.svg" alt="" /><span>arXiv</span></a>
+          <a href={youtubeUrl} target="_blank" rel="noreferrer"><img className="resource-icon" src="./media/icons/youtube.svg" alt="" /><span>Video</span></a>
+          <a href={repository.url} target="_blank" rel="noreferrer"><img className="resource-icon" src="./media/icons/github.svg" alt="" /><span>Code</span></a>
         </nav>
         <div className="project-header">
           <p className="project-mark">FDDC</p>

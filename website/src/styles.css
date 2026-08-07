@@ -20,11 +20,10 @@ h1 { color:rgba(255,255,255,.82); font-size:clamp(54px,8.5vw,128px); font-weight
 .authors { color:rgba(255,255,255,.68); font-size:clamp(13px,1.25vw,18px); line-height:1.8; margin:28px auto 3px; max-width:900px; text-shadow:0 2px 14px rgba(0,0,0,.35); }
 .venue { color:rgba(226,236,245,.62); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.09em; margin:8px 0 0; text-transform:uppercase; }
 .resource-links { display:flex; flex-wrap:wrap; gap:8px; position:absolute; right:clamp(18px,3.4vw,58px); top:clamp(18px,3.2vw,48px); z-index:2; }
-.resource-links a { align-items:center; backdrop-filter:blur(12px); background:rgba(10,13,18,.34); border:1px solid rgba(255,255,255,.26); border-radius:8px; color:rgba(255,255,255,.92); display:flex; font-size:15px; font-weight:600; gap:8px; padding:12px 16px; transition:background .2s,border-color .2s,color .2s,transform .2s; }
+.resource-links a { align-items:center; backdrop-filter:blur(12px); background:rgba(10,13,18,.34); border:1px solid rgba(255,255,255,.26); border-radius:8px; color:rgba(255,255,255,.92); display:flex; font-size:15px; font-weight:600; gap:9px; padding:12px 16px; transition:background .2s,border-color .2s,color .2s,transform .2s; }
 .resource-links a:last-child { background:rgba(255,255,255,.92); color:#15181b; }
 .resource-links a:hover { background:var(--lime); border-color:var(--lime); color:#10150d; transform:translateY(-3px); }
-.resource-links svg { fill:none; height:17px; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6; width:17px; }
-.resource-links a:nth-child(2) svg,.resource-links a:nth-child(3) svg { fill:currentColor; stroke:none; }
+.resource-icon { display:block; flex:0 0 20px; height:20px; object-fit:contain; width:20px; }
 .content-section { margin:0 auto; max-width:var(--max); padding:112px 32px 0; }
 .content-section h2 { font-size:clamp(30px,3.7vw,49px); font-weight:700; line-height:1.08; text-align:center; }
 .content-section h2::after { background:var(--lime); content:''; display:block; height:3px; margin:21px auto 0; width:40px; }
