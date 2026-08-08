@@ -71,7 +71,7 @@ function App() {
   return <>
     <main>
       <section className="project-hero" id="top">
-        <div className="hero-background" aria-hidden="true"><video src="./media/hero-video.mp4" poster="./media/fddc-poster.webp" muted loop autoPlay={!reducedMotion} playsInline preload="metadata" /><div /></div>
+        <div className="hero-background" aria-hidden="true"><video src="./media/hero-video.mp4" muted loop autoPlay={!reducedMotion} playsInline preload="metadata" /><div /></div>
         <nav className="resource-links" aria-label="Project resources">
           <a href={paper.url} target="_blank" rel="noreferrer"><img className="resource-icon" src="./media/icons/arxiv.svg" alt="" /><span>arXiv</span></a>
           <a href={youtubeUrl} target="_blank" rel="noreferrer"><img className="resource-icon" src="./media/icons/youtube.svg" alt="" /><span>Video</span></a>
