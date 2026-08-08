@@ -3,15 +3,19 @@ import { authors, demos, paper, repository, type Demo } from './data/project'
 
 const youtubeUrl = 'https://youtu.be/ue3DhT5B3mU'
 
-const simulationVideos = [
-  ['FDDC', 'sim2sim_com_xcom_right_8424_FDDC.mp4'],
-  ['GMT', 'sim2sim_com_xcom_right_8424_GMT.mp4'],
+const fddcComparison = ['FDDC', 'sim2sim_com_xcom_right_8424_FDDC.mp4'] as const
+
+const emergentRobustnessBaselines = [
   ['HoloMotion', 'sim2sim_com_xcom_right_8424_HoloMotion.mp4'],
-  ['Humanoid-GPT', 'sim2sim_com_xcom_right_8424_humanoid_gpt.mp4'],
+  ['SONIC', 'sim2sim_com_xcom_right_8424_SONIC.mp4'],
   ['MOSAIC', 'sim2sim_com_xcom_right_8424_MOSAIC.mp4'],
+  ['Humanoid-GPT', 'sim2sim_com_xcom_right_8424_humanoid_gpt.mp4'],
+] as const
+
+const balanceGapBaselines = [
+  ['GMT', 'sim2sim_com_xcom_right_8424_GMT.mp4'],
   ['OmniXtreme', 'sim2sim_com_xcom_right_8424_OmniXtreme.mp4'],
   ['ProtoMotions', 'sim2sim_com_xcom_right_8424_protomotions.mp4'],
-  ['SONIC', 'sim2sim_com_xcom_right_8424_SONIC.mp4'],
   ['TWIST', 'sim2sim_com_xcom_right_8424_TWIST.mp4'],
 ] as const
 
@@ -77,7 +81,9 @@ function App() {
           <p className="project-mark">FDDC</p>
           <h1>First Deployable<br />Dynamic-CoM</h1>
           <p className="hero-subtitle">A Unified Policy and Method-Agnostic Benchmark<br />for Humanoid Single-Leg Balance</p>
-          <p className="authors">{authors.join(' · ')}</p>
+          <p className="authors">{authors.map((author, index) => <span key={author}>{author}{(author === 'Yixin Zhu' || author === 'Wenxin Li') && <sup>*</sup>}{index < authors.length - 1 && ' · '}</span>)}</p>
+          <p className="affiliation">Peking University</p>
+          <p className="correspondence">- Corresponding authors: yixin.zhu@pku.edu.cn · lwx@pku.edu.cn</p>
           <p className="venue">arXiv:2608.00500 · August 2026</p>
         </div>
       </section>
@@ -85,7 +91,15 @@ function App() {
       <section className="content-section comparison-section">
         <h2>Simulation Comparisons</h2>
         <p className="section-note">The same sim2sim single-leg balance setting, shown for FDDC and eight comparison policies.</p>
-        <div className="comparison-grid">{simulationVideos.map(([name, file]) => <article key={name} className={name === 'FDDC' ? 'comparison-card featured-comparison' : 'comparison-card'}><video src={`./media/sim2sim/${file}`} muted loop playsInline controls preload="metadata" /><h3>{name}</h3></article>)}</div>
+        <article className="comparison-card comparison-ours"><video src={`./media/sim2sim/${fddcComparison[1]}`} muted loop playsInline controls preload="metadata" /><h3>{fddcComparison[0]} · Our Proposed Method</h3></article>
+        <section className="baseline-group">
+          <p className="comparison-caption">Strong generalist policies exhibit emergent single-leg robustness, but do not consistently sustain clean balance.</p>
+          <div className="baseline-grid">{emergentRobustnessBaselines.map(([name, file]) => <article key={name} className="comparison-card"><video src={`./media/sim2sim/${file}`} muted loop playsInline controls preload="metadata" /><h3>{name}</h3></article>)}</div>
+        </section>
+        <section className="baseline-group">
+          <p className="comparison-caption">Current general policies remain well short of reliable single-leg balance.</p>
+          <div className="baseline-grid">{balanceGapBaselines.map(([name, file]) => <article key={name} className="comparison-card"><video src={`./media/sim2sim/${file}`} muted loop playsInline controls preload="metadata" /><h3>{name}</h3></article>)}</div>
+        </section>
       </section>
 
       <section className="content-section videos" id="videos">
@@ -96,7 +110,7 @@ function App() {
 
       <section className="content-section abstract" id="abstract">
         <h2>Abstract</h2>
-        <p>Unified humanoid policies handle agile whole-body motion, yet stumble on a simple demand: staying balanced on one leg. FDDC puts a support-relative dynamic-CoM observation directly into the actor, where it is reconstructed from encoders and IMU alone. Trained with a privileged critic and no distillation, FDDC holds a clean single-leg stance on 86 of 90 held-out motions across nine pose classes and transfers to a real Unitree G1.</p>
+        <p>Unified humanoid policies handle agile whole-body motion, yet stumble on a simple demand: staying balanced on one leg. On our single-leg-balance benchmark, eight released state-of-the-art general policies hold a clean single-leg stance on 0 of 90 test motions; they stay up only by stepping or hopping, recovering from imbalance rather than preventing it. Prevention needs the capture point (xCoM), the center of mass (CoM) extrapolated by its velocity, which has never driven a hardware policy because it requires a base linear velocity no on-board sensor provides; expressed relative to the support foot, that velocity cancels exactly, leaving an observation reconstructible from encoders and IMU alone. We put this first deployable dynamic-CoM observation directly into the actor that runs on hardware, and pair it with a reward library translated term by term from human postural control, under one principle: prevention over repair. Trained by asymmetric FastSAC with a privileged critic and no distillation, the resulting policy, FDDC (First Deployable Dynamic-CoM), holds clean single-leg balance on 86 of 90 held-out motions across nine stratified pose classes and transfers to a real Unitree G1; in ablation, the dynamic-CoM observation is the single largest driver: removing it alone costs 40 points of clean single-leg balance. We release the full stack with the first method-agnostic, reproducible sim2sim benchmark for humanoid single-leg balance, scoring each policy in a simulator distinct from its training one, a step toward turning balance from a per-task trick into a capability the field can measure.</p>
         <div className="evaluation-panel">
           <div><span>Benchmark & evaluation</span><h3>A shared testbed for clean single-leg balance.</h3><p>FDDC releases a method-agnostic, reproducible sim2sim benchmark. Every policy is evaluated in a common MuJoCo G1 environment with the same motions, control rate, and outcome tiers: Perfect, Marginal, or Failure.</p></div>
           <dl><div><dt>900</dt><dd>stratified motions</dd></div><div><dt>720 / 90 / 90</dt><dd>train / validation / test</dd></div><div><dt>90</dt><dd>held-out test motions</dd></div><div><dt>86 / 90</dt><dd>FDDC clean holds</dd></div></dl>
