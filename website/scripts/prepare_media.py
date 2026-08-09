@@ -1,4 +1,4 @@
-"""Prepare lightweight web media from the original FDDC demo assets."""
+"""Prepare lightweight web media from the original DDC demo assets."""
 
 from __future__ import annotations
 
