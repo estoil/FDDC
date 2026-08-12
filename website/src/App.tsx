@@ -3,7 +3,7 @@ import { ablations, authors, demos, paper, repository, type Demo } from './data/
 
 const youtubeUrl = 'https://youtu.be/ue3DhT5B3mU'
 
-const fddcComparison = ['DDC', 'sim2sim_com_xcom_right_8424_DDC.mp4'] as const
+const fddcComparison = ['DDC', 'sim2sim_com_xcom_right_8424_DDC.mp4?v=20260812-2'] as const
 
 const emergentRobustnessBaselines = [
   ['HoloMotion', 'sim2sim_com_xcom_right_8424_HoloMotion.mp4'],
