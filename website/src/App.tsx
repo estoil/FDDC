@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { authors, demos, paper, repository, type Demo } from './data/project'
+import { ablations, authors, demos, paper, repository, type Demo } from './data/project'
 
 const youtubeUrl = 'https://youtu.be/ue3DhT5B3mU'
 
@@ -65,6 +65,35 @@ function VideoModal({ demo, onClose }: { demo: Demo; onClose: () => void }) {
   </div>
 }
 
+function AblationChart() {
+  const [mode, setMode] = useState<'clean' | 'noisy'>('clean')
+  return <section className="content-section ablations" id="ablations">
+    <div className="ablation-heading">
+      <div>
+        <p className="section-kicker">Component analysis</p>
+        <h2>What Drives Balance?</h2>
+        <p className="section-note">Perfect-success rate on the 90-motion held-out test set. Removing the dynamic-CoM observation causes the largest clean-performance drop.</p>
+      </div>
+      <div className="metric-toggle" role="group" aria-label="Ablation evaluation condition">
+        <button type="button" className={mode === 'clean' ? 'active' : ''} aria-pressed={mode === 'clean'} onClick={() => setMode('clean')}>Clean</button>
+        <button type="button" className={mode === 'noisy' ? 'active' : ''} aria-pressed={mode === 'noisy'} onClick={() => setMode('noisy')}>Noisy</button>
+      </div>
+    </div>
+    <p className="ablation-context">{mode === 'clean' ? 'Clean evaluation · K = 1' : 'Observation noise · K = 10 seeds'}</p>
+    <div className="ablation-chart">
+      {ablations.map((ablation, index) => {
+        const value = ablation[mode]
+        return <div className={`ablation-row${index === 0 ? ' ablation-full' : ''}`} key={ablation.label}>
+          <span className="ablation-label">{ablation.label}</span>
+          <div className="ablation-track"><span className="ablation-fill" style={{ width: `${value}%` }} /></div>
+          <strong>{value.toFixed(1)}%</strong>
+        </div>
+      })}
+    </div>
+    <p className="ablation-footnote">Noisy evaluation perturbs deployable observations only; outcomes are scored from the robot’s true state.</p>
+  </section>
+}
+
 function App() {
   const reducedMotion = useReducedMotion()
   const [selectedDemo, setSelectedDemo] = useState<Demo | null>(null)
@@ -110,17 +139,19 @@ function App() {
 
       <section className="content-section abstract" id="abstract">
         <h2>Abstract</h2>
-        <p>Unified humanoid policies handle agile whole-body motion, yet stumble on a simple demand: staying balanced on one leg. On our single-leg-balance benchmark, eight released state-of-the-art general policies hold a clean single-leg stance on 0 of 90 test motions; they stay up only by stepping or hopping, recovering from imbalance rather than preventing it. Prevention needs the capture point (xCoM), the center of mass (CoM) extrapolated by its velocity, which has never driven a hardware policy because it requires a base linear velocity no on-board sensor provides; expressed relative to the support foot, that velocity cancels exactly, leaving an observation reconstructible from encoders and IMU alone. We put this first deployable dynamic-CoM observation directly into the actor that runs on hardware, and pair it with a reward library translated term by term from human postural control, under one principle: prevention over repair. Trained by asymmetric FastSAC with a privileged critic and no distillation, the resulting policy, DDC (First Deployable Dynamic-CoM), holds clean single-leg balance on 86 of 90 held-out motions across nine stratified pose classes and transfers to a real Unitree G1; in ablation, the dynamic-CoM observation is the single largest driver: removing it alone costs 40 points of clean single-leg balance. We release the full stack with the first method-agnostic, reproducible sim2sim benchmark for humanoid single-leg balance, scoring each policy in a simulator distinct from its training one, a step toward turning balance from a per-task trick into a capability the field can measure.</p>
+        <p>Unified humanoid policies handle agile whole-body motion, yet stumble on a simple demand: staying balanced on one leg. On our single-leg-balance benchmark, eight released state-of-the-art general policies hold a clean single-leg stance on 0 of 90 test motions; they stay up only by stepping or hopping, recovering from imbalance rather than preventing it. Prevention needs the capture point (xCoM), the center of mass (CoM) extrapolated by its velocity, which has never driven a learned hardware policy because it requires a base linear velocity that no on-board sensor measures directly. A change of frame makes it observable: expressed relative to the support foot, that velocity cancels exactly, leaving an observation reconstructible from encoders and IMU alone. We put this first deployable dynamic-CoM observation directly into the actor that runs on hardware, and pair it with a reward library translated term by term from human postural control, under one principle: prevention over repair. Trained by asymmetric FastSAC with a privileged critic and no distillation, the resulting policy, DDC (Deployable Dynamic-CoM), holds clean single-leg balance on 89 of 90 held-out motions across nine stratified pose classes and transfers to a real Unitree G1; in ablation, the dynamic-CoM observation is the single largest driver: removing it alone costs 43 points of clean single-leg balance. We release the full stack with the first method-agnostic, reproducible sim2sim benchmark for humanoid single-leg balance, scoring each policy in a simulator distinct from its training one, a step toward turning balance from a per-task trick into a capability the field can measure.</p>
         <div className="evaluation-panel">
           <div><span>Benchmark & evaluation</span><h3>A shared testbed for clean single-leg balance.</h3><p>DDC releases a method-agnostic, reproducible sim2sim benchmark. Every policy is evaluated in a common MuJoCo G1 environment with the same motions, control rate, and outcome tiers: Perfect, Marginal, or Failure.</p></div>
-          <dl><div><dt>900</dt><dd>stratified motions</dd></div><div><dt>720 / 90 / 90</dt><dd>train / validation / test</dd></div><div><dt>90</dt><dd>held-out test motions</dd></div><div><dt>86 / 90</dt><dd>DDC clean holds</dd></div></dl>
+          <dl><div><dt>900</dt><dd>stratified motions</dd></div><div><dt>720 / 90 / 90</dt><dd>train / validation / test</dd></div><div><dt>98.9%</dt><dd>Perfect · clean</dd></div><div><dt>61.8%</dt><dd>Perfect · noisy</dd></div></dl>
         </div>
       </section>
 
       <figure className="overview-figure"><img src="./media/figures/ddc-overview.png" alt="DDC training, benchmarking, and real-robot deployment overview" /><figcaption>DDC trains a deployable actor with a support-relative dynamic-CoM observation, evaluates it in a method-agnostic sim2sim benchmark, and deploys it directly on Unitree G1.</figcaption></figure>
 
+      <AblationChart />
+
     </main>
-    <footer><span>DDC · First Deployable Dynamic-CoM</span><a href="#top">Back to top</a></footer>
+    <footer><span>DDC · Deployable Dynamic-CoM</span><a href="#top">Back to top</a></footer>
     {selectedDemo && <VideoModal demo={selectedDemo} onClose={() => setSelectedDemo(null)} />}
   </>
 }

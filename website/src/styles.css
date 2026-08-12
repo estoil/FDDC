@@ -57,6 +57,28 @@ h1 { color:rgba(236,240,245,.8); font-size:clamp(64px,9.4vw,142px); font-weight:
 .overview-figure { background:var(--paper); color:var(--ink); margin:0; max-width:none; padding:0 max(32px,calc((100vw - var(--max))/2)) 105px; }
 .overview-figure img { border:1px solid #d8d5cd; border-radius:12px; box-shadow:0 16px 40px rgba(48,43,32,.1); display:block; height:auto; margin:0 auto; max-width:var(--max); width:100%; }
 .overview-figure figcaption { color:#5c6465; font-size:12px; line-height:1.7; margin:12px auto 0; max-width:880px; text-align:center; }
+.ablations { padding-bottom:30px; }
+.ablation-heading { align-items:flex-end; display:flex; gap:40px; justify-content:space-between; }
+.ablation-heading > div:first-child { max-width:720px; }
+.ablation-heading h2 { text-align:left; }
+.ablation-heading h2::after { margin-left:0; }
+.ablation-heading .section-note { margin:17px 0 0; max-width:680px; text-align:left; }
+.section-kicker { color:var(--lime); font-family:'DM Mono',monospace; font-size:10px; letter-spacing:.14em; margin:0 0 13px; text-transform:uppercase; }
+.metric-toggle { background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:10px; display:flex; flex:0 0 auto; padding:4px; }
+.metric-toggle button { background:transparent; border:0; border-radius:7px; color:var(--mist); cursor:pointer; font-family:'DM Mono',monospace; font-size:11px; padding:10px 16px; transition:background .2s,color .2s; }
+.metric-toggle button:hover { color:#fff; }
+.metric-toggle button.active { background:var(--lime); color:#14200d; font-weight:700; }
+.metric-toggle button:focus-visible { outline:2px solid var(--cyan); outline-offset:2px; }
+.ablation-context { color:#dce5ef; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:.05em; margin:45px 0 18px; }
+.ablation-chart { border-bottom:1px solid var(--line); border-top:1px solid var(--line); padding:20px 0; }
+.ablation-row { align-items:center; display:grid; gap:18px; grid-template-columns:minmax(210px,290px) 1fr 62px; min-height:48px; }
+.ablation-label { color:#bdc8d5; font-size:13px; line-height:1.3; }
+.ablation-track { background:rgba(255,255,255,.07); border-radius:999px; height:10px; overflow:hidden; }
+.ablation-fill { background:linear-gradient(90deg,#357d8b,var(--cyan)); border-radius:inherit; display:block; height:100%; min-width:2px; transition:width .45s cubic-bezier(.2,.8,.2,1); }
+.ablation-row strong { color:#dfe8f2; font-family:'DM Mono',monospace; font-size:12px; text-align:right; }
+.ablation-full .ablation-label,.ablation-full strong { color:var(--lime); font-weight:700; }
+.ablation-full .ablation-fill { background:linear-gradient(90deg,#7fab3b,var(--lime)); }
+.ablation-footnote { color:#7f8b99; font-family:'DM Mono',monospace; font-size:10px; line-height:1.6; margin:15px 0 0; }
 .comparison-section { border-top:1px solid var(--line); padding-bottom:36px; }
 .comparison-card { background:var(--night-card); border:1px solid rgba(196,220,244,.14); border-radius:14px; margin:0; overflow:hidden; transition:border-color .2s,transform .2s; }
 .comparison-card:hover { transform:translateY(-4px); }
@@ -80,3 +102,5 @@ footer a:hover { color:var(--lime); }
 @media (max-width:760px) { .project-hero { padding:54px 0 44px; } .project-header { padding:0 20px 30px; } h1 { font-size:31px; } .authors { font-size:13px; } .resource-links { gap:8px; } .resource-links a { font-size:12px; padding:9px 12px; } .hero-media-grid { display:block; padding:0 14px; } .original-hero-video,.youtube-hero { border-radius:15px; } .original-hero-video video { min-height:340px; } .hero-title-overlay strong { font-size:43px; } .hero-title-overlay span { font-size:10px; } .original-hero-video figcaption { display:block; font-size:9px; line-height:1.7; } .original-hero-video figcaption span:last-child { display:block; } .youtube-hero { aspect-ratio:16/9; margin-top:12px; } .youtube-play { height:52px; width:52px; } .youtube-label { bottom:13px; font-size:11px; left:14px; } .hero-highlights { margin:20px 20px 0; } .hero-highlights strong { font-size:20px; } .hero-highlights span { font-size:9px; padding:14px 6px; } .content-section { padding:75px 20px 0; } .content-section h2 { font-size:32px; } .section-note { font-size:13px; margin-bottom:29px; } .video-grid,.baseline-grid { gap:9px; grid-template-columns:repeat(2,1fr); } .video-card,.comparison-card { border-radius:10px; } .comparison-ours { margin:32px auto 48px; padding:8px; } .comparison-ours h3 { font-size:10px; } .baseline-group { margin-top:38px; padding-top:25px; } .comparison-caption { font-size:17px; margin-bottom:19px; } .abstract { border-radius:20px 20px 0 0; margin-top:80px; padding:78px 22px 66px; } .abstract::before { font-size:115px; left:18px; top:38px; } .abstract > p { font-size:16px; line-height:1.75; text-align:left; } .evaluation-panel { display:block; margin-top:40px; padding-top:30px; } .evaluation-panel dl { margin-top:28px; } .overview-figure { padding:0 20px 70px; } .overview-figure img { border-radius:8px; } .comparison-section { padding-bottom:0; } footer { margin-top:60px; padding:22px 20px; } }
 
 @media (max-width:760px) { .project-hero { height:100svh; min-height:620px; padding:0; } .project-header { padding:32px 18px 29px; width:calc(100% - 28px); } .resource-links { justify-content:flex-end; left:16px; right:16px; top:16px; } .resource-links a { font-size:12px; padding:9px 11px; } .hero-title { font-size:clamp(39px,10.5vw,58px); } .hero-subtitle { font-size:17px; line-height:1.3; margin-top:19px; } .authors { font-size:12px; line-height:1.75; margin-top:23px; } .affiliation { font-size:13px; margin-top:8px; } .correspondence { font-size:9px; line-height:1.6; max-width:340px; } .venue { font-size:9px; margin-top:9px; } }
+
+@media (max-width:760px) { .ablation-heading { align-items:flex-start; display:block; } .metric-toggle { margin-top:25px; width:fit-content; } .ablation-context { margin-top:30px; } .ablation-row { gap:8px 10px; grid-template-columns:1fr 52px; padding:9px 0; } .ablation-label { font-size:11px; } .ablation-track { grid-column:1 / -1; grid-row:2; } .ablation-row strong { grid-column:2; grid-row:1; } }
