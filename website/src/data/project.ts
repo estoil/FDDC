@@ -84,8 +84,8 @@ export const paper = {
 }
 
 export const repository = {
-  url: 'https://github.com/estoil/DDC',
-  benchmarkUrl: 'https://github.com/estoil/DDC/tree/main/eval',
+  url: 'https://github.com/zhouyikaiii/FDDC',
+  benchmarkUrl: 'https://github.com/zhouyikaiii/FDDC/tree/main/eval',
 }
 
 export const authors = [
